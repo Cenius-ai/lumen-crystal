@@ -1,0 +1,27 @@
+<div class="page-header">
+  <div>
+    <h1 class="page-title">Tag: <span class="tag-highlight"><%= esc(tag_name) %></span></h1>
+    <p class="page-subtitle"><%= total %> links</p>
+  </div>
+  <div class="sort-tabs">
+    <a href="?sort=newest" class="sort-tab <%= sort == "newest" ? "active" : "" %>">Newest</a>
+    <a href="?sort=top" class="sort-tab <%= sort == "top" ? "active" : "" %>">Top</a>
+  </div>
+</div>
+<div class="link-list">
+  <% links.each do |link| %>
+  <% tags = link_tags_for(link[:id]) %>
+  <% domain = extract_domain(link[:url]) %>
+  <article class="link-card">
+    <div class="link-vote"><span class="vote-count"><%= link[:vote_count] %></span><span class="vote-label">votes</span></div>
+    <div class="link-body">
+      <div class="link-meta-row"><span class="link-domain"><%= esc(domain) %></span><span class="link-comment-count"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"></path></svg> <%= link[:comment_count] %></span></div>
+      <h2 class="link-title"><a href="/link/<%= link[:id] %>"><%= esc(link[:title]) %></a></h2>
+      <div class="link-footer">
+        <div class="link-tags"><% tags.each do |t| %><a href="/tag/<%= esc(t[:name]) %>" class="tag-pill"><%= esc(t[:name]) %></a><% end %></div>
+        <div class="link-author">by <a href="/user/<%= esc(link[:username]) %>"><%= esc(link[:username]) %></a> <span class="link-time"><%= time_ago(link[:created_at]) %></span></div>
+      </div>
+    </div>
+  </article>
+  <% end %>
+</div>

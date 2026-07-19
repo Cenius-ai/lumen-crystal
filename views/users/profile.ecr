@@ -1,0 +1,52 @@
+<div class="profile-page">
+  <header class="profile-header">
+    <div class="profile-avatar"><%= esc(profile[:username][0, 1].upcase) %></div>
+    <div class="profile-info">
+      <h1 class="profile-username"><%= esc(profile[:username]) %></h1>
+      <p class="profile-joined">Joined <%= profile[:created_at][0, 10] %></p>
+    </div>
+  </header>
+  <div class="profile-sections">
+    <section class="profile-section">
+      <h2 class="section-title">Submitted Links (<%= profile_links.size %>)</h2>
+      <% if profile_links.empty? %>
+      <p class="profile-empty">No links submitted yet.</p>
+      <% else %>
+      <div class="profile-link-list">
+        <% profile_links.each do |plink| %>
+        <% ptags = link_tags_for(plink[:id]) %>
+        <div class="profile-link-item">
+          <div class="profile-link-main">
+            <a href="/link/<%= plink[:id] %>" class="profile-link-title"><%= esc(plink[:title]) %></a>
+            <div class="profile-link-meta">
+              <span><%= plink[:vote_count] %> votes</span>
+              <span><%= plink[:comment_count] %> comments</span>
+              <span><%= time_ago(plink[:created_at]) %></span>
+            </div>
+            <div class="link-tags"><% ptags.each do |t| %><a href="/tag/<%= esc(t[:name]) %>" class="tag-pill tag-pill-sm"><%= esc(t[:name]) %></a><% end %></div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <% end %>
+    </section>
+    <section class="profile-section">
+      <h2 class="section-title">Recent Comments (<%= profile_comments.size %>)</h2>
+      <% if profile_comments.empty? %>
+      <p class="profile-empty">No comments yet.</p>
+      <% else %>
+      <div class="profile-comment-list">
+        <% profile_comments.each do |pcom| %>
+        <div class="profile-comment-item">
+          <p class="profile-comment-body"><%= esc(pcom[:body]) %></p>
+          <div class="profile-comment-meta">
+            <span>on <a href="/link/<%= pcom[:link_id] %>"><%= esc(pcom[:link_title]) %></a></span>
+            <span><%= time_ago(pcom[:created_at]) %></span>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <% end %>
+    </section>
+  </div>
+</div>

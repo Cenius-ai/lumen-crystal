@@ -1,0 +1,37 @@
+<div class="page-header"><h1 class="page-title">Search</h1></div>
+<form action="/search" method="get" class="search-form-page">
+  <div class="search-input-group">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="search-icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+    <input type="search" name="q" value="<%= query ? esc(query) : "" %>" placeholder="Search links, tags, and discussions..." autofocus>
+  </div>
+  <% if query && !query.empty? %>
+  <div class="sort-tabs">
+    <a href="?q=<%= esc(query) %>&amp;sort=newest" class="sort-tab <%= sort == "newest" ? "active" : "" %>">Newest</a>
+    <a href="?q=<%= esc(query) %>&amp;sort=top" class="sort-tab <%= sort == "top" ? "active" : "" %>">Top</a>
+  </div>
+  <% end %>
+</form>
+<% if query && !query.empty? %>
+<div class="search-results-header"><p><%= links.size %> result<%= links.size == 1 ? "" : "s" %> for "<strong><%= esc(query) %></strong>"</p></div>
+<% if links.empty? %>
+<div class="empty-state"><div class="empty-icon">&#128269;</div><h2>No results found</h2><p>Try different keywords or browse the <a href="/">homepage</a>.</p></div>
+<% else %>
+<div class="link-list">
+  <% links.each do |link| %>
+  <% tags = link_tags_for(link[:id]) %>
+  <% domain = extract_domain(link[:url]) %>
+  <article class="link-card">
+    <div class="link-vote"><span class="vote-count"><%= link[:vote_count] %></span><span class="vote-label">votes</span></div>
+    <div class="link-body">
+      <div class="link-meta-row"><span class="link-domain"><%= esc(domain) %></span><span class="link-comment-count"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"></path></svg> <%= link[:comment_count] %></span></div>
+      <h2 class="link-title"><a href="/link/<%= link[:id] %>"><%= esc(link[:title]) %></a></h2>
+      <div class="link-footer">
+        <div class="link-tags"><% tags.each do |t| %><a href="/tag/<%= esc(t[:name]) %>" class="tag-pill"><%= esc(t[:name]) %></a><% end %></div>
+        <div class="link-author">by <a href="/user/<%= esc(link[:username]) %>"><%= esc(link[:username]) %></a> <span class="link-time"><%= time_ago(link[:created_at]) %></span></div>
+      </div>
+    </div>
+  </article>
+  <% end %>
+</div>
+<% end %>
+<% end %>

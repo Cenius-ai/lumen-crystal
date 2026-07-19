@@ -1,0 +1,66 @@
+<article class="link-detail">
+  <header class="link-detail-header">
+    <div class="link-vote-detail">
+      <span class="vote-count-large"><%= vote_count %></span>
+      <span class="vote-label">votes</span>
+      <% if user %>
+      <form action="/vote" method="post" class="vote-form">
+        <input type="hidden" name="link_id" value="<%= link[:id] %>">
+        <button type="submit" name="direction" value="up" class="vote-btn <%= uv == "up" ? "voted-up" : "" %>" title="Upvote" aria-label="Upvote">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"></polyline></svg>
+        </button>
+      </form>
+      <% end %>
+    </div>
+    <div class="link-detail-main">
+      <h1 class="link-detail-title"><%= esc(link[:title]) %></h1>
+      <div class="link-detail-meta">
+        <a href="<%= esc(link[:url]) %>" class="link-detail-url" rel="nofollow noopener" target="_blank">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          <%= esc(domain) %>
+        </a>
+        <span>by <a href="/user/<%= esc(link[:username]) %>"><%= esc(link[:username]) %></a></span>
+        <span><%= time_ago(link[:created_at]) %></span>
+      </div>
+      <% unless link[:body].empty? %>
+      <div class="link-detail-body"><p><%= esc(link[:body]) %></p></div>
+      <% end %>
+      <div class="link-detail-tags">
+        <% tags.each do |tag| %><a href="/tag/<%= esc(tag[:name]) %>" class="tag-pill"><%= esc(tag[:name]) %></a><% end %>
+      </div>
+    </div>
+  </header>
+  <section class="comments-section">
+    <div class="comments-header"><h2>Comments (<%= comment_count %>)</h2></div>
+    <% if user %>
+    <form action="/comment" method="post" class="comment-form">
+      <input type="hidden" name="link_id" value="<%= link[:id] %>">
+      <div class="comment-form-body">
+        <textarea name="body" rows="3" placeholder="Share your thoughts..." required></textarea>
+        <button type="submit" class="btn btn-primary">Comment</button>
+      </div>
+    </form>
+    <% else %>
+    <div class="comment-login-prompt"><p><a href="/login">Log in</a> to join the discussion.</p></div>
+    <% end %>
+    <div class="comment-thread">
+      <% root_comments.each do |comment| %>
+      <% children = all_comments.select { |c| c[:parent_id] == comment[:id] } %>
+      <div class="comment-item">
+        <div class="comment-main">
+          <div class="comment-meta"><a href="/user/<%= esc(comment[:username]) %>" class="comment-author"><%= esc(comment[:username]) %></a><span class="comment-time"><%= time_ago(comment[:created_at]) %></span></div>
+          <div class="comment-body"><p><%= esc(comment[:body]) %></p></div>
+        </div>
+        <% children.each do |child| %>
+        <div class="comment-item comment-reply">
+          <div class="comment-main">
+            <div class="comment-meta"><a href="/user/<%= esc(child[:username]) %>" class="comment-author"><%= esc(child[:username]) %></a><span class="comment-time"><%= time_ago(child[:created_at]) %></span></div>
+            <div class="comment-body"><p><%= esc(child[:body]) %></p></div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+  </section>
+</article>

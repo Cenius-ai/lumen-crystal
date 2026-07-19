@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumen — Tech News &amp; Discussion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <a href="/" class="logo">
+          <span class="logo-icon">&#9670;</span>
+          <span class="logo-text">Lumen</span>
+        </a>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item">Home</a>
+        <a href="/search" class="nav-item">Search</a>
+        <% if user %>
+        <a href="/submit" class="nav-item">Submit</a>
+        <% end %>
+      </nav>
+      <div class="sidebar-tags">
+        <h3 class="sidebar-section-title">Popular Tags</h3>
+        <div class="tag-list-sidebar">
+          <% ttags.each do |tag| %>
+          <a href="/tag/<%= esc(tag[:name]) %>" class="tag-pill-sidebar"><%= esc(tag[:name]) %> <span class="tag-count"><%= tag[:cnt] %></span></a>
+          <% end %>
+        </div>
+      </div>
+      <div class="sidebar-footer">
+        <% if user %>
+        <div class="user-info-mini">
+          <a href="/user/<%= esc(user[:username]) %>" class="user-link"><%= esc(user[:username]) %></a>
+        </div>
+        <a href="/logout" class="btn btn-ghost btn-sm">Log out</a>
+        <% else %>
+        <a href="/login" class="btn btn-ghost btn-sm">Log in</a>
+        <a href="/register" class="btn btn-primary btn-sm">Sign up</a>
+        <% end %>
+      </div>
+    </aside>
+    <main class="main-content">
+      <div class="top-bar">
+        <div class="top-bar-left">
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle light/dark theme">
+            <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path></svg>
+          </button>
+        </div>
+        <% if user %>
+        <span class="top-bar-greeting">Welcome, <a href="/user/<%= esc(user[:username]) %>"><%= esc(user[:username]) %></a></span>
+        <% end %>
+      </div>
+      <%= page_content %>
+    </main>
+  </div>
+  <script src="/js/theme.js"></script>
+</body>
+</html>
