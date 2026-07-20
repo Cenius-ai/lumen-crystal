@@ -1,14 +1,14 @@
 # Lumen — production-ready Crystal social network app starter
 
-**Lumen** is a free, open-source social network app built with Crystal. Lumen is a tech news link aggregator built with Kemal (Crystal) that features full social functionality: user submissions with user-defined tags, upvoting/downvoting, threaded comments, and user accounts with email/pa…. Run it locally, deploy it as a self-hosted social network app, or [remix it on cenius.ai](https://cenius.ai/marketplace/p/lumen?ref=gh&utm_campaign=lumen-crystal) to make it your own — the whole application (code, design, seeded demo data) ships in this repository under the MIT license.
+**Lumen** is a free, open-source social network app built with Crystal. Lumen is a tech news link aggregator built with Kemal (Crystal) that features full social functionality: user submissions with user-defined tags, upvoting/downvoting, threaded comments, and user accounts with email/pa…. Run it locally, deploy it as a self-hosted social network app, or [remix it on cenius.ai](https://cenius.ai/marketplace/p/lumen?ref=gh&utm_campaign=lumen-crystal) to make it your own — the whole application (code, design, seeded demo data) ships in this repository under the Apache-2.0 license.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-16b881.svg)](LICENSE) ![Stack](https://img.shields.io/badge/Stack-Crystal-3b82f6) [![Built with cenius.ai](https://img.shields.io/badge/Built%20with-cenius.ai-8b5cf6)](https://cenius.ai)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE) ![Stack](https://img.shields.io/badge/Stack-Crystal-3b82f6) [![Built with cenius.ai](https://img.shields.io/badge/Built%20with-cenius.ai-8b5cf6)](https://cenius.ai)
 
-[![Open in cenius.ai](https://img.shields.io/badge/▶%20Open%20%26%20edit%20in-cenius.ai-8b5cf6?style=for-the-badge)](https://cenius.ai/marketplace/p/lumen)
+[![Open in cenius.ai](https://img.shields.io/badge/▶%20Open%20%26%20edit%20in-cenius.ai-8b5cf6?style=for-the-badge)](https://cenius.ai/marketplace/p/lumen?ref=gh&utm_campaign=lumen-crystal)
 
-> **▶ [Open & edit in cenius.ai](https://cenius.ai/marketplace/p/lumen)** — one click to an editable workspace: describe changes in plain English, get an instant preview, one-click deploy and host. Modifications made on the platform come with full rebrand & relicense rights.
+> **▶ [Open & edit in cenius.ai](https://cenius.ai/marketplace/p/lumen?ref=gh&utm_campaign=lumen-crystal)** — one click to an editable workspace: describe changes in plain English, get an instant preview, one-click deploy and host. Modifications made on the platform come with full rebrand & relicense rights.
 
-_Local clone? See [Quick start](#quick-start) or [Quickstart](#quickstart) below. cenius.ai is the zero-setup path._
+_Local clone? See [Quick start](#quick-start) below. cenius.ai is the zero-setup path._
 
 ## Demo
 
@@ -111,7 +111,7 @@ Crystal. The full source in this repository is exactly what the app runs. Highli
 
 ### Is Lumen free for commercial use?
 
-Yes. The code is MIT-licensed — use it, modify it, and ship it commercially. See [LICENSE](LICENSE).
+Yes. The code is Apache-2.0-licensed — use it, modify it, and ship it commercially. See [LICENSE](LICENSE).
 
 ### Can I rebrand or white-label Lumen?
 
@@ -123,7 +123,7 @@ Open it on [cenius.ai](https://cenius.ai/marketplace/p/lumen?ref=gh&utm_campaign
 
 ## License & rebranding
 
-Released under the [MIT License](LICENSE) (© 2026 Cenius AI) — free for personal and commercial use.
+Released under the [Apache License 2.0](LICENSE) (© 2026 Cenius AI) — free for personal and commercial use. The Cenius name/logo are trademarks (see NOTICE).
 
 **Need a customized version?** [Remix this app on cenius.ai](https://cenius.ai/marketplace/p/lumen?ref=gh&utm_campaign=lumen-crystal) — modifications made on the platform come with **full rebrand & relicense rights** over your derivative.
 
