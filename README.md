@@ -1,4 +1,4 @@
-# Lumen — open-source social network app
+# Lumen — production-ready Crystal social network app starter
 
 **Lumen** is a free, open-source social network app built with Crystal. Lumen is a tech news link aggregator built with Kemal (Crystal) that features full social functionality: user submissions with user-defined tags, upvoting/downvoting, threaded comments, and user accounts with email/pa…. Run it locally, deploy it as a self-hosted social network app, or [remix it on cenius.ai](https://cenius.ai/marketplace/p/lumen?ref=gh&utm_campaign=lumen-crystal) to make it your own — the whole application (code, design, seeded demo data) ships in this repository under the MIT license.
 
@@ -6,7 +6,9 @@
 
 ## Demo
 
-![Lumen demo — social network app built with Crystal](.github/media/hero.gif)
+![Lumen — social network app](.github/media/poster.png)
+
+![Lumen demo — social network app built with Crystal](.github/media/hero_flagship.gif)
 
 ▶ **[Watch the full demo video](https://cenius.ai/marketplace/p/lumen?ref=gh&utm_campaign=lumen-crystal)** — the complete walkthrough, playing on the project's cenius.ai page · [MP4 file](.github/media/demo.mp4)
 
@@ -89,7 +91,7 @@ _Full guide: [`USAGE.md`](USAGE.md)_
 
 ## Architecture
 
-Crystal application, delivered as a complete, runnable project (254 files). Top-level layout: `bin/`, `lib/`, `public/`, `src/`, `views/`. `install.sh` provisions dependencies and seeds demo data, so the app boots with something to show. Setup details live in [`INSTALL.md`](INSTALL.md).
+Crystal application, delivered as a complete, runnable project (248 files). Top-level layout: `bin/`, `lib/`, `public/`, `src/`, `views/`. `install.sh` provisions dependencies and seeds demo data, so the app boots with something to show. Setup details live in [`INSTALL.md`](INSTALL.md).
 
 ## FAQ
 
