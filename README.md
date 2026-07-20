@@ -4,6 +4,12 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-16b881.svg)](LICENSE) ![Stack](https://img.shields.io/badge/Stack-Crystal-3b82f6) [![Built with cenius.ai](https://img.shields.io/badge/Built%20with-cenius.ai-8b5cf6)](https://cenius.ai)
 
+[![Open in cenius.ai](https://img.shields.io/badge/▶%20Open%20%26%20edit%20in-cenius.ai-8b5cf6?style=for-the-badge)](https://cenius.ai/marketplace/p/lumen)
+
+> **▶ [Open & edit in cenius.ai](https://cenius.ai/marketplace/p/lumen)** — one click to an editable workspace: describe changes in plain English, get an instant preview, one-click deploy and host. Modifications made on the platform come with full rebrand & relicense rights.
+
+_Local clone? See [Quick start](#quick-start) or [Quickstart](#quickstart) below. cenius.ai is the zero-setup path._
+
 ## Demo
 
 ![Lumen — social network app](.github/media/poster.png)
