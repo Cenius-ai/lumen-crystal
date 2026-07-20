@@ -1,0 +1,28 @@
+<div class="page-header"><h1 class="page-title">Create an account</h1></div>
+<div class="form-container form-auth">
+  <% if register_errors %>
+  <div class="alert alert-error"><ul><% register_errors.each do |err| %><li><%= esc(err) %></li><% end %></ul></div>
+  <% end %>
+  <form action="/register" method="post">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" required autocomplete="username" placeholder="yourname" minlength="2" maxlength="30" value="<%= register_username ? esc(register_username) : "" %>">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@example.com" value="<%= register_email ? esc(register_email) : "" %>">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required autocomplete="new-password" minlength="6" placeholder="At least 6 characters">
+    </div>
+    <div class="form-group">
+      <label for="password_confirmation">Confirm Password</label>
+      <input type="password" id="password_confirmation" name="password_confirmation" required autocomplete="new-password" minlength="6">
+    </div>
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary btn-full">Create Account</button>
+    </div>
+    <p class="form-alt-link">Already have an account? <a href="/login">Log in</a></p>
+  </form>
+</div>

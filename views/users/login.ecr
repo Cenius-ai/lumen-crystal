@@ -1,0 +1,22 @@
+<div class="page-header"><h1 class="page-title">Log in</h1></div>
+<div class="form-container form-auth">
+  <div class="demo-hint">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+    <span>Demo: <strong>cenius@cenius.ai</strong> / <strong>cenius</strong></span>
+  </div>
+  <% if login_error %><div class="alert alert-error"><%= esc(login_error) %></div><% end %>
+  <form action="/login" method="post">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@example.com">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required autocomplete="current-password">
+    </div>
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary btn-full">Log in</button>
+    </div>
+    <p class="form-alt-link">Don't have an account? <a href="/register">Sign up</a></p>
+  </form>
+</div>
