@@ -1,0 +1,6 @@
+.env
+lumen.db
+/bin/
+/lib/
+/.shards/
+*.dwarf
